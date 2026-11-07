@@ -1,0 +1,20 @@
+databaseChangeLog:
+  - changeSet:
+      id: seed-bidders
+      author: AlexanderMinko
+      comment: "Three synthetic DSPs: alpha is fast and always bids, beta sometimes no-bids, gamma is slow enough to time out."
+      changes:
+        - insertMany:
+            collectionName: bidders
+            documents: |
+              [
+                { "_id": "bidder-alpha", "key": "alpha", "name": "Alpha DSP",
+                  "latencyMs": 30, "jitterMs": 10, "bidRate": 1.0,
+                  "nurlTemplate": "https://alpha.bidders.invalid/win?crid={crid}&price=${AUCTION_PRICE}" },
+                { "_id": "bidder-beta", "key": "beta", "name": "Beta DSP",
+                  "latencyMs": 80, "jitterMs": 30, "bidRate": 0.6,
+                  "nurlTemplate": "https://beta.bidders.invalid/win?crid={crid}&price=${AUCTION_PRICE}" },
+                { "_id": "bidder-gamma", "key": "gamma", "name": "Gamma DSP",
+                  "latencyMs": 600, "jitterMs": 50, "bidRate": 1.0,
+                  "nurlTemplate": "https://gamma.bidders.invalid/win?crid={crid}&price=${AUCTION_PRICE}" }
+              ]

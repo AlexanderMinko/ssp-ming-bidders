@@ -1,0 +1,19 @@
+databaseChangeLog:
+  - changeSet:
+      id: bidders-key-unique
+      author: AlexanderMinko
+      comment: "The bidder key is the URL path segment (POST /bid/{key}), so it must be unique."
+      changes:
+        - createIndex:
+            collectionName: bidders
+            keys: '{ "key": 1 }'
+            options: '{ "name": "ux_bidders_key", "unique": true }'
+  - changeSet:
+      id: creatives-by-bidder-format-size
+      author: AlexanderMinko
+      comment: "Creative lookup shape: a bidder's creatives of one format and size."
+      changes:
+        - createIndex:
+            collectionName: creatives
+            keys: '{ "bidderId": 1, "format": 1, "w": 1, "h": 1 }'
+            options: '{ "name": "ix_creatives_bidder_format_size" }'

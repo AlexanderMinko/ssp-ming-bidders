@@ -1,0 +1,41 @@
+databaseChangeLog:
+  - changeSet:
+      id: seed-creatives
+      author: AlexanderMinko
+      comment: "Synthetic creative libraries. Prices straddle typical floors so the floor check filters some out. Every document is live; retire one by deleting it."
+      changes:
+        - insertMany:
+            collectionName: creatives
+            documents: |
+              [
+                { "_id": "cr-alpha-300x250-hi", "bidderId": "bidder-alpha", "crid": "alpha-300x250-hi",
+                  "format": "BANNER", "w": 300, "h": 250, "priceCpm": 1.50,
+                  "adomain": ["acme-shoes.example"], "cat": ["IAB18"],
+                  "adm": "<div style='width:300px;height:250px'><a href='https://acme-shoes.example/click'>Acme Shoes</a><img src='https://alpha.bidders.invalid/imp?crid=alpha-300x250-hi&price=${AUCTION_PRICE}' width='1' height='1'/></div>" },
+                { "_id": "cr-alpha-300x250-lo", "bidderId": "bidder-alpha", "crid": "alpha-300x250-lo",
+                  "format": "BANNER", "w": 300, "h": 250, "priceCpm": 0.40,
+                  "adomain": ["budget-travel.example"], "cat": ["IAB20"],
+                  "adm": "<div style='width:300px;height:250px'><a href='https://budget-travel.example/click'>Budget Travel</a><img src='https://alpha.bidders.invalid/imp?crid=alpha-300x250-lo&price=${AUCTION_PRICE}' width='1' height='1'/></div>" },
+                { "_id": "cr-alpha-320x50", "bidderId": "bidder-alpha", "crid": "alpha-320x50",
+                  "format": "BANNER", "w": 320, "h": 50, "priceCpm": 0.80,
+                  "adomain": ["puzzle-games.example"], "cat": ["IAB9-30"],
+                  "adm": "<div style='width:320px;height:50px'><a href='https://puzzle-games.example/click'>Puzzle Games</a><img src='https://alpha.bidders.invalid/imp?crid=alpha-320x50&price=${AUCTION_PRICE}' width='1' height='1'/></div>" },
+                { "_id": "cr-alpha-video-320x480", "bidderId": "bidder-alpha", "crid": "alpha-video-320x480",
+                  "format": "VIDEO", "w": 320, "h": 480, "priceCpm": 6.00,
+                  "adomain": ["racing-game.example"], "cat": ["IAB9-30"],
+                  "video": { "durationSec": 15, "mimes": ["video/mp4"] },
+                  "adm": "<VAST version='3.0'><Ad id='alpha-video-320x480'><InLine><AdSystem>Alpha DSP</AdSystem><AdTitle>Racing Game</AdTitle><Impression><![CDATA[https://alpha.bidders.invalid/imp?crid=alpha-video-320x480&price=${AUCTION_PRICE}]]></Impression><Creatives><Creative><Linear><Duration>00:00:15</Duration><MediaFiles><MediaFile delivery='progressive' type='video/mp4' width='320' height='480'><![CDATA[https://cdn.bidders.invalid/alpha-video-320x480.mp4]]></MediaFile></MediaFiles></Linear></Creative></Creatives></InLine></Ad></VAST>" },
+                { "_id": "cr-beta-300x250", "bidderId": "bidder-beta", "crid": "beta-300x250",
+                  "format": "BANNER", "w": 300, "h": 250, "priceCpm": 0.90,
+                  "adomain": ["home-garden.example"], "cat": ["IAB10"],
+                  "adm": "<div style='width:300px;height:250px'><a href='https://home-garden.example/click'>Home and Garden</a><img src='https://beta.bidders.invalid/imp?crid=beta-300x250&price=${AUCTION_PRICE}' width='1' height='1'/></div>" },
+                { "_id": "cr-beta-video-320x480", "bidderId": "bidder-beta", "crid": "beta-video-320x480",
+                  "format": "VIDEO", "w": 320, "h": 480, "priceCpm": 4.00,
+                  "adomain": ["fitness-app.example"], "cat": ["IAB7"],
+                  "video": { "durationSec": 30, "mimes": ["video/mp4"] },
+                  "adm": "<VAST version='3.0'><Ad id='beta-video-320x480'><InLine><AdSystem>Beta DSP</AdSystem><AdTitle>Fitness App</AdTitle><Impression><![CDATA[https://beta.bidders.invalid/imp?crid=beta-video-320x480&price=${AUCTION_PRICE}]]></Impression><Creatives><Creative><Linear><Duration>00:00:30</Duration><MediaFiles><MediaFile delivery='progressive' type='video/mp4' width='320' height='480'><![CDATA[https://cdn.bidders.invalid/beta-video-320x480.mp4]]></MediaFile></MediaFiles></Linear></Creative></Creatives></InLine></Ad></VAST>" },
+                { "_id": "cr-gamma-300x250", "bidderId": "bidder-gamma", "crid": "gamma-300x250",
+                  "format": "BANNER", "w": 300, "h": 250, "priceCpm": 2.00,
+                  "adomain": ["luxury-watch.example"], "cat": ["IAB22"],
+                  "adm": "<div style='width:300px;height:250px'><a href='https://luxury-watch.example/click'>Luxury Watch</a><img src='https://gamma.bidders.invalid/imp?crid=gamma-300x250&price=${AUCTION_PRICE}' width='1' height='1'/></div>" }
+              ]

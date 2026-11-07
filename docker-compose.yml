@@ -1,0 +1,8 @@
+# Local MongoDB for the bidders. Published on 27018 because the exchange's compose owns 27017.
+# Liquibase seeds it when the app starts:
+#   MONGO_URI=mongodb://localhost:27018/ssp-bidders ./mvnw spring-boot:run
+services:
+  mongo:
+    image: mongo:7
+    ports:
+      - "27018:27017"

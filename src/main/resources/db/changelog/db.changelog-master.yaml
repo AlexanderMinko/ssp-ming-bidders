@@ -1,0 +1,5 @@
+# Master changelog: one include per release, in order. Never edit an applied changeset — add a new one.
+databaseChangeLog:
+  - include:
+      file: v1/changelog-v1.yaml
+      relativeToChangelogFile: true

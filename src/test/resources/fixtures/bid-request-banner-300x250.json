@@ -1,0 +1,51 @@
+{
+  "id": "req-0001",
+  "at": 1,
+  "tmax": 300,
+  "cur": ["USD"],
+  "imp": [
+    {
+      "id": "imp-1",
+      "tagid": "tag-00001",
+      "instl": 0,
+      "secure": 1,
+      "bidfloor": 0.5,
+      "bidfloorcur": "USD",
+      "displaymanager": "MingSdk",
+      "metric": [{ "type": "viewability", "value": 0.7, "vendor": "exchange" }],
+      "banner": { "w": 300, "h": 250, "pos": 0, "api": [3, 5] },
+      "ext": { "reward": 0 }
+    }
+  ],
+  "app": {
+    "id": "app-0001",
+    "name": "Dice Party",
+    "bundle": "com.example.diceparty",
+    "storeurl": "https://store.example/apps/diceparty",
+    "cat": ["IAB9-30"],
+    "publisher": { "id": "pub-100", "name": "Dice Studio Ltd" }
+  },
+  "device": {
+    "ua": "Mozilla/5.0 (Linux; Android 14) Mobile",
+    "ip": "192.0.2.10",
+    "os": "android",
+    "osv": "14",
+    "devicetype": 4,
+    "geo": { "country": "USA", "type": 2 },
+    "ifa": "00000000-0000-4000-8000-000000000001"
+  },
+  "user": { "id": "user-0001" },
+  "source": {
+    "ext": {
+      "schain": {
+        "complete": 1,
+        "ver": "1.0",
+        "nodes": [{ "asi": "ming-ssp.example", "sid": "1001", "hp": 1 }]
+      }
+    }
+  },
+  "regs": { "coppa": 0, "ext": { "gdpr": 0 } },
+  "bcat": ["IAB25", "IAB26"],
+  "badv": ["advertiser-01.example"],
+  "ext": { "test": 1 }
+}
